@@ -1,42 +1,27 @@
-# cxxproject Design
+# Design
 
-This document captures the design goals, architectural decisions, and open design questions for `cxxproject`.
+These principles guide the [proof-of-concept roadmap](ROADMAP.md). Decisions are
+provisional until implementation tests them.
 
-The project is currently an experimental proof of concept. Some decisions documented here are provisional and may change as the POC provides evidence about what works.
+## Project interface
 
-Open questions are also tracked in [ROADMAP.md](ROADMAP.md) when they represent planned design or implementation work.
+`cxx.json` would hold project metadata and declarations needed by shared tooling.
+`cxxp info` would expose resolved project information as deterministic JSON,
+including discovered files, configured tools, and the build backend. The manifest
+and resolved output are separate interfaces.
 
-## 1. Goals
+## Boundaries
 
-`cxxproject` aims to provide a standardized, declarative project description and tooling interface for C and C++ projects.
+* Declare project intent rather than duplicate a build system's graph or flags.
+* Reuse native tool configuration, such as `.clang-format` and `.clang-tidy`.
+* Keep the project model independent of the build backend.
+* Make diagnostics usable by humans and tools.
+* Add shared concepts only when a concrete consumer needs them.
 
-The primary goals are:
+The interface should not prescribe a compiler or IDE.
 
-1. Establish a project-level description independent of a particular build system.
-2. Provide simple, consistent interfaces for common developer operations.
-3. Make project information easily consumable by tools, IDEs, CI systems, and agents.
-4. Reuse existing C and C++ tools rather than unnecessarily replacing them.
-5. Establish abstractions that can eventually support multiple implementations.
-6. Prefer project-level declarations of intent over build-system-specific implementation details.
+## Decisions still open
 
-The initial POC focuses on:
-
-* project metadata
-* project introspection
-* source-file discovery
-* formatting
-* static analysis
-* SARIF diagnostics
-* building through CMake
-
-## 2. Non-goals
-
-`cxxproject` is not initially intended to:
-
-* replace existing build systems
-* define a new general-purpose build-system language
-* reproduce the complete semantic model of CMake, Meson, Bazel, or other build systems
-* prescribe a compiler or IDE
-* replace established tool-specific configuration formats
-* solve C/C++ dependency management
-
+Implementation must establish the manifest schema, file-discovery rules, how to
+obtain compilation information for analysis, and command failure behavior.
+See the [roadmap](ROADMAP.md) for deferred work.
