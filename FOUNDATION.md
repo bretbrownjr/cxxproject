@@ -7,16 +7,7 @@ command are still open to discussion.
 
 ## 1. Get a program running
 
-Start with a minimal CMake project containing `src/` and `tests/`, a `cxxp`
-executable, and tests run through CTest. Choose a language version and libraries
-for JSON parsing and schema validation, with a reproducible way to obtain them.
-
-The first commands are `cxxp --help` and `cxxp --version`. Both should work from
-any directory, even outside a project. Unknown arguments should produce a clear
-error and a nonzero exit status.
-
-Once the build works, [CONTRIBUTING.md](CONTRIBUTING.md#validation) can describe
-its prerequisites and the commands to build and test it.
+Complete. See [BUILDING.md](BUILDING.md) to build and test the runnable scaffold.
 
 ## 2. Agree on a small manifest
 

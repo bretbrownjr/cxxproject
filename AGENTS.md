@@ -27,6 +27,16 @@ still belong in their owning project documents.
 
 ## Editing workflow
 
+Development tools, including CMake, Ninja, clang-tidy, clang-format, and just,
+are installed under `/opt/uv/.venv/bin`. Add that directory to PATH for validation.
+Do not download development tools; ask the user if a required tool is missing.
+
+Always use angle brackets for header includes, including project headers. Prefix
+project header paths with `cxxp/` and expose them through CMake header file sets.
+Put code in namespace `cxxp` wherever possible, including unnamed namespaces.
+Keep the global `main` function minimal and delegate its logic to `cxxp`.
+Use include guards with project-prefixed macro names instead of `#pragma once`.
+
 * **Placement:** Put substantive information in its owning file and link to it elsewhere. A brief
   orientation is fine; repeated explanations and checklists are not.
 * **Scope:** Update only documents affected by a change. Do not expand all files for symmetry.
@@ -36,6 +46,15 @@ still belong in their owning project documents.
 * **Brevity:** Preserve useful rationale, constraints, and unresolved questions when shortening
   text. Omit boilerplate, speculative detail, and exhaustive task inventories.
   Add detail only when it helps a reader understand, decide, or take action.
+
+## Project version
+
+Every PR must bump the version in the root CMake `project()` declaration,
+including documentation-only PRs. During development, include a version increase
+relative to the PR's base branch before submitting the change. During review,
+verify that increase and report a missing bump as an issue. Keep executable
+version output derived from the project version rather than maintaining a second
+version string.
 
 ## Review workflow
 

@@ -1,0 +1,5 @@
+#include <cxxp/version.hxx>
+
+namespace cxxp {
+const std::string_view project_version = "@PROJECT_VERSION@";
+}

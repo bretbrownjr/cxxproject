@@ -12,9 +12,9 @@ features as settled behavior.
 
 ## Validation
 
-Once implementation begins, include tests for observable behavior and document
-how to build and run them. Manifest changes should update the schema, examples,
-and validation tests together.
+See [BUILDING.md](BUILDING.md) for build and test guidance. Include tests for
+observable behavior as implementation grows. Manifest changes should update
+the schema, examples, and validation tests together.
 
 ## Pull requests
 

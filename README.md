@@ -1,8 +1,8 @@
 # cxxproject
 
 This is an experiment in a common project description and tooling interface for C
-and C++. This repository currently contains the proposal. Implementation has not
-started.
+and C++. A minimal `cxxp` now provides help and version output, with a CMake build
+and CTest checks. Manifest discovery and validation are still planned.
 
 ## Motivation
 
