@@ -8,35 +8,25 @@ program and iterates toward that goal. The proposed `validate` command is still 
 
 Complete. See [DEVELOPMENT.md](DEVELOPMENT.md) to build and test the runnable scaffold.
 
-## 2. Agree on a small manifest
+## 2. Agree on a small `cxx.json` format
 
-Complete. The [manifest contract](CXX_JSON.md) and bundled schema
+Complete. The [`cxx.json` contract](CXX_JSON.md) and bundled schema
 are implemented by a validator independent of the CLI.
 
 ## 3. Find and read the project
 
-Starting in the current directory, `cxxp` will look upward for the nearest
-`cxx.json`. The directory containing it is the project root. If that manifest is
-invalid, the tool should report the problem rather than continue looking for a
-parent project.
-
-Discovery and manifest loading should be usable independently of the command-line
-interface. Together they provide the project root, manifest path, name, and version.
-Missing manifests, unreadable files, malformed JSON, and schema violations need
-clear errors, including the affected path where available.
-
-Manifest loading rejects duplicate JSON object keys before parsing loses that
-information. Tests cover duplicate `schemaVersion` and `project.name` keys.
+Complete as part of Introspection. `cxxp info` searches upward from the current
+directory for the nearest `cxx.json`, rejects duplicate object keys, validates
+the file, and reports errors without falling back to a parent project. See
+the [command reference](CLI.md).
 
 ## 4. Try the whole workflow
 
-A proposed `cxxp validate` command would bring these pieces together: find the
-project, validate its manifest, and report its name and version. Failure would
-return a nonzero exit status. Resolved JSON output can follow in the introspection
-milestone.
+Complete through `cxxp info`, which resolves the project and emits structured
+JSON. A standalone `validate` command is not part of the current plan.
 
 Tests should exercise the executable from project roots and nested directories,
-including nested projects, missing manifests, invalid JSON, invalid fields, and
+including nested projects, missing `cxx.json` files, invalid JSON, invalid fields, and
 unsupported schemas. They should also check help and version output, error
 messages, and exit status. CI can run the same build and tests documented for
 contributors.

@@ -20,7 +20,7 @@ Packages required for select ecosystems:
 | --- | --- |
 | nlohmann/json | 3.11 or newer |
 | Valijson | 1.0 or newer |
-| Catch2 (tests only) | 2.13 or newer |
+| Catch2 (tests only) | 3.0 or newer |
 
 ### With Debian packages
 
@@ -58,10 +58,11 @@ ctest --test-dir build --output-on-failure --no-tests=error
 
 Use a fresh build directory when changing toolchains. Set `BUILD_TESTING=OFF`
 when configuring a build without tests; Catch2 is then unnecessary.
-The manifest tests use Catch2 scenarios discovered automatically by CTest.
+The `cxx.json` validation tests use Catch2 scenarios discovered automatically by CTest.
 
-The executable is `build/src/cxxp`; run it without arguments or with `--help` for
-usage, or use `--version` for the CMake project version.
+The executable is `build/src/cxxp`; see the [usage guide](USAGE.md) for running
+commands and the [command reference](CLI.md) for their syntax and behavior. Use
+`--version` for the CMake project version.
 
 ## With clang-format
 

@@ -14,7 +14,7 @@ class CxxprojectConan(ConanFile):
 
     def build_requirements(self):
         if not self.conf.get("tools.build:skip_test", default=False):
-            self.test_requires("catch2/[>=2.13]")
+            self.test_requires("catch2/[>=3.0]")
 
     def _cmake_generator(self):
         return self.conf.get("tools.cmake.cmaketoolchain:generator", default="Ninja")

@@ -9,7 +9,9 @@ to keep current. Each file owns a distinct category of information:
 | --- | --- |
 | [README.md](README.md) | Explain the project, its motivation, and current maturity; point readers to other documents. |
 | [DESIGN.md](DESIGN.md) | Record design principles, boundaries, consequential decisions, and open design questions. |
-| [CXX_JSON.md](CXX_JSON.md) | Explain the manifest format, supported fields, and validation constraints for users. |
+| [CXX_JSON.md](CXX_JSON.md) | Explain the `cxx.json` format, supported fields, and validation constraints for users. |
+| [USAGE.md](USAGE.md) | Show common command workflows for users. |
+| [CLI.md](CLI.md) | Specify command syntax, output fields, discovery rules, and errors. |
 | [ROADMAP.md](ROADMAP.md) | Describe planned capabilities and their order; distinguish immediate work from deferred ideas. |
 | [FOUNDATION.md](FOUNDATION.md) | Break the Foundation milestone into actionable steps and completion checks; keep milestone summaries in ROADMAP.md. |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Explain how to contribute and validate changes, with commands only when they actually work. |
@@ -44,6 +46,10 @@ project header paths with `cxxp/` and expose them through CMake header file sets
 Put code in namespace `cxxp` wherever possible, including unnamed namespaces.
 Keep the global `main` function minimal and delegate its logic to `cxxp`.
 Use include guards with project-prefixed macro names instead of `#pragma once`.
+For Catch2 tests, prefer the literate `SCENARIO`/`GIVEN`/`WHEN`/`THEN` macros
+when writing and reviewing test cases.
+Set minimum dependency versions in the build and package configuration instead
+of probing library headers with `__has_include` for version compatibility.
 
 * **Placement:** Put substantive information in its owning file and link to it elsewhere. A brief
   orientation is fine; repeated explanations and checklists are not.

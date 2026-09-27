@@ -5,12 +5,15 @@ provisional until implementation tests them.
 
 ## Project interface
 
-`cxx.json` holds project metadata; see the [manifest reference](CXX_JSON.md) for
+`cxx.json` holds project metadata; see the [file format reference](CXX_JSON.md) for
 its format.
 
-`cxxp info` would expose resolved project information as deterministic JSON,
-including discovered files, configured tools, and the build backend. The manifest
-and resolved output are separate interfaces.
+`cxxp info` exposes resolved project information as deterministic JSON, including
+discovered files, tool configuration files, and the build backend. The `cxx.json`
+file and resolved output are separate interfaces; see the [command reference](CLI.md).
+The file inventory reports matching paths in the project tree, not the build
+system's inputs. Tool entries report configuration file locations, not executable
+availability or inherited settings.
 
 ## Boundaries
 
@@ -24,6 +27,6 @@ The interface should not prescribe a compiler or IDE.
 
 ## Decisions still open
 
-Implementation must establish file-discovery rules, how to
-obtain compilation information for analysis, and command failure behavior.
-See the [roadmap](ROADMAP.md) for deferred work.
+File discovery and `info` failure behavior are defined by the initial command
+contract. Analysis still needs a source for compilation information and useful
+failure behavior. See the [roadmap](ROADMAP.md) for deferred work.

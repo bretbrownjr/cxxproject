@@ -11,7 +11,7 @@ namespace {
 #endif
 
 constexpr unsigned char schema_data[] = {
-#embed "../../schemas/manifest-v1.schema.json"
+#embed "../../schemas/cxx-json-v1.schema.json"
 };
 
 #if defined(__clang__)
@@ -19,8 +19,8 @@ constexpr unsigned char schema_data[] = {
 #elif defined(__GNUC__)
 #pragma GCC diagnostic pop
 #endif
-} // namespace
+} // unnamed namespace
 
-std::string_view const manifest_schema{
+std::string_view const project_file_schema{
     reinterpret_cast<char const *>(schema_data), sizeof(schema_data)};
 } // namespace cxxp

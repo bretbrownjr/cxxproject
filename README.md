@@ -1,7 +1,7 @@
 # cxxproject
 
 cxxproject is an experimental project interface for C and C++: a `cxx.json`
-manifest for project metadata and a `cxxp` command intended to expose common
+file for project metadata and a `cxxp` command intended to expose common
 development operations.
 
 ## Motivation
@@ -11,7 +11,7 @@ files, scripts, CI, and editor settings. The intended result is that an editor o
 CI system could ask `cxxp` for project information or request formatting through
 the same interface across projects.
 
-The manifest would describe project intent, while existing tools handle builds,
+The `cxx.json` file would describe project intent, while existing tools handle builds,
 formatting, and analysis.
 
 ## Scope
@@ -22,9 +22,9 @@ precedents.
 
 ## Current status
 
-Early prototype. `cxxp` currently provides help and version output, and a separate
-library validates parsed manifests. Project discovery and command-line validation
-are planned; see the [roadmap](ROADMAP.md).
+Early prototype. `cxxp` provides help, version output, and `info` for inspecting
+a project. See the [usage guide](USAGE.md), [command reference](CLI.md), and
+[roadmap](ROADMAP.md).
 
 ## Getting involved
 
@@ -34,6 +34,8 @@ and concrete use cases are welcome; see [Contributing](CONTRIBUTING.md).
 ## Further reading
 
 * [CXX_JSON.md](CXX_JSON.md) for the `cxx.json` reference
+* [USAGE.md](USAGE.md) for common command workflows
+* [CLI.md](CLI.md) for command syntax and behavior
 * [DESIGN.md](DESIGN.md) for a conceptual design explainer
 * [ROADMAP.md](ROADMAP.md) for planned work
 * [TODO.md](TODO.md) for implementation follow-ups and upstream questions

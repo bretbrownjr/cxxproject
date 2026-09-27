@@ -4,7 +4,7 @@
 #include <string_view>
 
 namespace cxxp {
-extern std::string_view const manifest_schema;
+extern std::string_view const project_file_schema;
 }
 
 #endif // CXXP_SCHEMA_HXX
