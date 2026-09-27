@@ -1,2 +1,4 @@
-build/
+.codex/
+.vscode/
 CMakeUserPresets.json
+build/

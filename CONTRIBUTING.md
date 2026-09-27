@@ -1,28 +1,39 @@
 # Contributing
 
-Start with the [project overview](README.md). Use [DESIGN.md](DESIGN.md) to assess
-scope and [ROADMAP.md](ROADMAP.md) to find planned work.
+Contributions are welcome, including concrete C and C++ workflow examples, bug
+reports, documentation improvements, and code. This is an early prototype, so
+feedback on the project interface is especially useful.
 
-## Contributions welcome!
+## Getting started
 
-Thanks for using this project! If you would also like to contribute, you are welcome!
+Start with the [project overview](README.md) and [design](DESIGN.md) to understand
+the scope. The [roadmap](ROADMAP.md) describes planned work, and
+[Development](DEVELOPMENT.md) explains how to build and test the prototype.
 
 ## Proposing changes
 
-Here are some guidelines for proposing changes.
+Keep changes small and focused on a concrete use case. For a new concept, explain
+who needs it and why existing build or tool configuration is insufficient.
 
-* Keep changes small and focused on a concrete use case.
-* Justify your changes.
-* For a new concept, explain who needs it and why existing build or tool configuration is insufficient.
-* Update the design when a decision changes
-* Please avoid documenting speculative features as settled behavior.
+For bug reports, include steps to reproduce, expected and actual behavior, and
+relevant tool and platform versions.
 
 ## Validation
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for formatting, build, and test guidance. Include tests for
-observable behavior as implementation grows. `cxx.json` changes should update
-the schema, examples, and validation tests together.
+Run the checks described in [Development](DEVELOPMENT.md#regression-testing) and
+review any formatting changes. Include tests for new or changed behavior;
+`cxx.json` changes should update the schema, examples, and validation tests together.
 
 ## Pull requests
 
-Please at least broadly describe what was changed and why that change is worthwhile.
+Describe the problem, how the change addresses it, and how you validated it.
+Update affected documentation, keeping planned features distinct from implemented
+behavior and recording design decisions in [DESIGN.md](DESIGN.md).
+
+Every pull request, including documentation changes, must increase the version in
+the root CMake `project()` declaration relative to the base branch.
+
+## License
+
+Unless explicitly stated otherwise, contributions are submitted under the
+project's [Apache License 2.0 with LLVM exceptions](LICENSE).
