@@ -38,7 +38,7 @@ class CxxprojectConan(ConanFile):
     def generate(self):
         CPSDeps(self).generate()
         deps = CMakeDeps(self)
-        for name in ("catch2", "nlohmann_json", "valijson"):
+        for name in ("nlohmann_json", "valijson"):
             deps.set_property(name, "cmake_find_mode", "none")
         deps.generate()
 
