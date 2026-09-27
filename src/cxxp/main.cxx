@@ -8,15 +8,37 @@
 
 namespace cxxp {
 namespace {
-constexpr std::string_view usage = "Usage: cxxp [--help | --version]\n"
-                                   "       cxxp info [--help]\n"
-                                   "\n"
-                                   "Options:\n"
-                                   "  --help     Show this help\n"
-                                   "  --version  Show the project version\n";
+constexpr std::string_view usage =
+    "Usage: cxxp [--help | --version]\n"
+    "       cxxp info [--help]\n"
+    "\n"
+    "Inspect a cxxp project from its directory or a\n"
+    "subdirectory.\n"
+    "\n"
+    "Commands:\n"
+    "  info       Print project information as JSON\n"
+    "\n"
+    "Options:\n"
+    "  --help     Show this help\n"
+    "  --version  Show the project version\n"
+    "\n"
+    "Run 'cxxp info --help' for command details.\n";
 constexpr std::string_view info_usage =
     "Usage: cxxp info [--help]\n\n"
-    "Show resolved project information as JSON.\n";
+    "Print a JSON summary of the project described by cxx.json. Use it to\n"
+    "inspect project metadata, see which source and header files cxxp\n"
+    "recognizes, or pass a stable inventory to another tool. The summary also\n"
+    "lists clang-format and clang-tidy configuration files and identifies a\n"
+    "CMake entry point when one is present.\n"
+    "\n"
+    "Project discovery starts in the current directory and walks upward to\n"
+    "the nearest cxx.json. Run the command from any directory inside the\n"
+    "project; paths in the output are relative to its root. Nested projects\n"
+    "with their own cxx.json are reported separately.\n"
+    "\n"
+    "The JSON output is sorted and has no timestamps or tool versions. See\n"
+    "the cxxp command reference for the complete output schema and discovery\n"
+    "rules.\n";
 } // unnamed namespace
 
 int run(int argc, char *argv[]) {

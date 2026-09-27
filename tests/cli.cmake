@@ -91,7 +91,11 @@ elseif(CASE STREQUAL "info")
   endif()
 elseif(CASE STREQUAL "info-help")
   if(NOT status STREQUAL "0" OR NOT error STREQUAL "" OR
-      NOT output MATCHES "Usage: cxxp info")
+      NOT output MATCHES "Usage: cxxp info" OR
+      NOT output MATCHES "nearest cxx.json" OR
+      NOT output MATCHES "source and header files" OR
+      NOT output MATCHES "no timestamps or tool versions" OR
+      NOT output MATCHES "cxxp command reference")
     message(FATAL_ERROR "Unexpected info help: ${status}; ${output}; ${error}")
   endif()
 else()
@@ -103,7 +107,8 @@ else()
       message(FATAL_ERROR "Unexpected version: ${output}")
     endif()
   elseif(NOT output MATCHES "Usage: cxxp" OR
-      NOT output MATCHES "--help" OR NOT output MATCHES "--version")
+      NOT output MATCHES "--help" OR NOT output MATCHES "--version" OR
+      NOT output MATCHES "Commands:" OR NOT output MATCHES "info --help")
     message(FATAL_ERROR "Incomplete help: ${output}")
   endif()
 endif()
