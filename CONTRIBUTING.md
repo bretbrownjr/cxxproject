@@ -3,20 +3,26 @@
 Start with the [project overview](README.md). Use [DESIGN.md](DESIGN.md) to assess
 scope and [ROADMAP.md](ROADMAP.md) to find planned work.
 
+## Contributions welcome!
+
+Thanks for using this project! If you would also like to contribute, you are welcome!
+
 ## Proposing changes
 
-Keep changes small and focused on a concrete use case. For a new concept, explain
-who needs it and why existing build or tool configuration is insufficient.
-Update the design when a decision changes, and avoid documenting speculative
-features as settled behavior.
+Here are some guidelines for proposing changes.
+
+* Keep changes small and focused on a concrete use case.
+* Justify your changes.
+* For a new concept, explain who needs it and why existing build or tool configuration is insufficient.
+* Update the design when a decision changes
+* Please avoid documenting speculative features as settled behavior.
 
 ## Validation
 
-See [BUILDING.md](BUILDING.md) for build and test guidance. Include tests for
-observable behavior as implementation grows. Manifest changes should update
+See [DEVELOPMENT.md](DEVELOPMENT.md) for formatting, build, and test guidance. Include tests for
+observable behavior as implementation grows. `cxx.json` changes should update
 the schema, examples, and validation tests together.
 
 ## Pull requests
 
-Pull requests should briefly explain the problem, the change, and how it was
-validated, including any remaining limitations.
+Please at least broadly describe what was changed and why that change is worthwhile.

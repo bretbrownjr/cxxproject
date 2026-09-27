@@ -5,7 +5,9 @@ provisional until implementation tests them.
 
 ## Project interface
 
-`cxx.json` would hold project metadata and declarations needed by shared tooling.
+`cxx.json` holds project metadata; see the [manifest reference](CXX_JSON.md) for
+its format.
+
 `cxxp info` would expose resolved project information as deterministic JSON,
 including discovered files, configured tools, and the build backend. The manifest
 and resolved output are separate interfaces.
@@ -22,6 +24,6 @@ The interface should not prescribe a compiler or IDE.
 
 ## Decisions still open
 
-Implementation must establish the manifest schema, file-discovery rules, how to
+Implementation must establish file-discovery rules, how to
 obtain compilation information for analysis, and command failure behavior.
 See the [roadmap](ROADMAP.md) for deferred work.

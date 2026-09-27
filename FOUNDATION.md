@@ -2,25 +2,16 @@
 
 The first [roadmap milestone](ROADMAP.md#first-proof-of-concept) is a small working
 `cxxp` that can find and validate a project. The plan below starts with a runnable
-program and iterates toward that goal. Schema details and the proposed `validate`
-command are still open to discussion.
+program and iterates toward that goal. The proposed `validate` command is still open to discussion.
 
 ## 1. Get a program running
 
-Complete. See [BUILDING.md](BUILDING.md) to build and test the runnable scaffold.
+Complete. See [DEVELOPMENT.md](DEVELOPMENT.md) to build and test the runnable scaffold.
 
 ## 2. Agree on a small manifest
 
-The initial `cxx.json` needs only a project name, project version, and schema-version
-identifier. A versioned JSON Schema will define which fields are required, their
-allowed types, and what happens with unknown fields or unsupported schema versions.
-Project versions can remain metadata without requiring a particular versioning
-scheme.
-
-Bundle the schema with the tool so validation works offline. Include examples of
-valid and invalid manifests in the tests, and give this repository its own
-`cxx.json`. The agreed manifest rules belong in
-[DESIGN.md](DESIGN.md#project-interface).
+Complete. The [manifest contract](CXX_JSON.md) and bundled schema
+are implemented by a validator independent of the CLI.
 
 ## 3. Find and read the project
 
@@ -33,6 +24,9 @@ Discovery and manifest loading should be usable independently of the command-lin
 interface. Together they provide the project root, manifest path, name, and version.
 Missing manifests, unreadable files, malformed JSON, and schema violations need
 clear errors, including the affected path where available.
+
+Manifest loading rejects duplicate JSON object keys before parsing loses that
+information. Tests cover duplicate `schemaVersion` and `project.name` keys.
 
 ## 4. Try the whole workflow
 

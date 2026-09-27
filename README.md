@@ -1,8 +1,7 @@
 # cxxproject
 
 This is an experiment in a common project description and tooling interface for C
-and C++. A minimal `cxxp` now provides help and version output, with a CMake build
-and CTest checks. Manifest discovery and validation are still planned.
+and C++.
 
 ## Motivation
 
@@ -22,5 +21,10 @@ precedents.
 
 ## Further reading
 
-See [DESIGN.md](DESIGN.md) for boundaries, [ROADMAP.md](ROADMAP.md) for planned work,
-and [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidance.
+See:
+
+* [CXX_JSON.md](CXX_JSON.md) for the `cxx.json` reference
+* [DESIGN.md](DESIGN.md) for a conceptual design explainer
+* [ROADMAP.md](ROADMAP.md) for planned work
+* [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute
+* Open implementation issues and upstream questions not on the roadmap are recorded in [TODO.md](TODO.md).

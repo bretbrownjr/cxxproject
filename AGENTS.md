@@ -9,9 +9,12 @@ to keep current. Each file owns a distinct category of information:
 | --- | --- |
 | [README.md](README.md) | Explain the project, its motivation, and current maturity; point readers to other documents. |
 | [DESIGN.md](DESIGN.md) | Record design principles, boundaries, consequential decisions, and open design questions. |
+| [CXX_JSON.md](CXX_JSON.md) | Explain the manifest format, supported fields, and validation constraints for users. |
 | [ROADMAP.md](ROADMAP.md) | Describe planned capabilities and their order; distinguish immediate work from deferred ideas. |
 | [FOUNDATION.md](FOUNDATION.md) | Break the Foundation milestone into actionable steps and completion checks; keep milestone summaries in ROADMAP.md. |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Explain how to contribute and validate changes, with commands only when they actually work. |
+| [DEVELOPMENT.md](DEVELOPMENT.md) | Document development tools, formatting, and build and test commands. |
+| [TODO.md](TODO.md) | Track concrete follow-up issues and upstream questions. |
 | AGENTS.md | Guide agent editing and review workflows; keep project explanations in the files above. |
 
 ## Audience and voice
@@ -30,6 +33,11 @@ still belong in their owning project documents.
 Development tools, including CMake, Ninja, clang-tidy, clang-format, and just,
 are installed under `/opt/uv/.venv/bin`. Add that directory to PATH for validation.
 Do not download development tools; ask the user if a required tool is missing.
+
+Run `just ci` before handing off changes, using the appropriate `toolchain` and
+`build_dir` settings for the environment. It formats files in place, then builds
+and tests; review the resulting diff. See [DEVELOPMENT.md](DEVELOPMENT.md) for setup and
+command options. If validation cannot run, report the blocker.
 
 Always use angle brackets for header includes, including project headers. Prefix
 project header paths with `cxxp/` and expose them through CMake header file sets.

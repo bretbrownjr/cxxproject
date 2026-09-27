@@ -5,22 +5,21 @@
 
 namespace cxxp {
 namespace {
-constexpr std::string_view usage =
-    "Usage: cxxp [--help | --version]\n"
-    "\n"
-    "Options:\n"
-    "  --help     Show this help\n"
-    "  --version  Show the project version\n";
+constexpr std::string_view usage = "Usage: cxxp [--help | --version]\n"
+                                   "\n"
+                                   "Options:\n"
+                                   "  --help     Show this help\n"
+                                   "  --version  Show the project version\n";
 }
 
-int run(int argc, char* argv[]) {
+int run(int argc, char *argv[]) {
   if (argc == 1) {
     std::cout << usage;
     return 0;
   }
 
   for (int index = 1; index < argc; ++index) {
-    const std::string_view argument{argv[index]};
+    std::string_view const argument{argv[index]};
     if (argument != "--help" && argument != "--version") {
       std::cerr << "cxxp: unknown argument '" << argument << "'\n" << usage;
       return 1;
@@ -37,8 +36,6 @@ int run(int argc, char* argv[]) {
   }
   return 0;
 }
-}
+} // namespace cxxp
 
-int main(int argc, char* argv[]) {
-  return cxxp::run(argc, argv);
-}
+int main(int argc, char *argv[]) { return cxxp::run(argc, argv); }

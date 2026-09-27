@@ -4,7 +4,7 @@
 #include <string_view>
 
 namespace cxxp {
-extern const std::string_view project_version;
+extern std::string_view const project_version;
 }
 
 #endif // CXXP_VERSION_HXX
