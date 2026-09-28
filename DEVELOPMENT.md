@@ -2,6 +2,7 @@
 
 ## Required tools and dependencies
 
+Building targets Linux. The process layer has no macOS or Windows implementation.
 Building requires:
 
 * CMake 4.4 or newer
@@ -56,9 +57,10 @@ cmake --build build --parallel
 ctest --test-dir build --output-on-failure --no-tests=error
 ```
 
-Use a fresh build directory when changing toolchains. Set `BUILD_TESTING=OFF`
-when configuring a build without tests; Catch2 is then unnecessary.
-The `cxx.json` validation tests use Catch2 scenarios discovered automatically by CTest.
+Tips:
+
+* Use a fresh build directory when changing toolchains.
+* Set `BUILD_TESTING=OFF` when configuring a build without tests.
 
 The executable is `build/src/cxxp`; see the [usage guide](USAGE.md) for running
 commands and the [command reference](CLI.md) for their syntax and behavior. Use

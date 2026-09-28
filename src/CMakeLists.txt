@@ -10,6 +10,7 @@ target_sources(cxxp_project_file PRIVATE
   cxxp/json_file.cxx
   cxxp/lock_file.cxx
   cxxp/format_backend.cxx
+  cxxp/format_runner.cxx
 )
 target_sources(cxxp_project_file PUBLIC
   FILE_SET HEADERS
@@ -22,6 +23,8 @@ target_sources(cxxp_project_file PUBLIC
       cxxp/json_file.hxx
       cxxp/lock_file.hxx
       cxxp/format_backend.hxx
+      cxxp/format_runner.hxx
+      cxxp/process.hxx
 )
 target_link_libraries(cxxp_project_file PUBLIC
   nlohmann_json::nlohmann_json
@@ -46,3 +49,9 @@ install(
   TARGETS cxxp
   COMPONENT cxxp
 )
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  target_sources(cxxp_project_file PRIVATE cxxp/process_linux.cxx)
+else()
+  message(FATAL_ERROR "The process implementation currently requires Linux")
+endif()

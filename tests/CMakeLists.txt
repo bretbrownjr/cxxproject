@@ -90,3 +90,15 @@ catch_discover_tests(formatting-tests
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/outside-project"
   PROPERTIES ENVIRONMENT
     "TMPDIR=${CMAKE_CURRENT_BINARY_DIR};TEMP=${CMAKE_CURRENT_BINARY_DIR};TMP=${CMAKE_CURRENT_BINARY_DIR}")
+
+add_executable(process-helper process_helper.cxx)
+add_executable(process-tests process.cxx)
+target_link_libraries(process-tests PRIVATE
+  cxxp_project_file cxxp_test_support Catch2::Catch2WithMain)
+target_compile_definitions(process-tests PRIVATE
+  CXXP_PROCESS_HELPER="$<TARGET_FILE:process-helper>")
+add_dependencies(process-tests process-helper)
+catch_discover_tests(process-tests
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/outside-project"
+  PROPERTIES ENVIRONMENT
+    "TMPDIR=${CMAKE_CURRENT_BINARY_DIR};TEMP=${CMAKE_CURRENT_BINARY_DIR};TMP=${CMAKE_CURRENT_BINARY_DIR}")
