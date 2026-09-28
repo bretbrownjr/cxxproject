@@ -8,8 +8,8 @@
 
 namespace cxxp {
 
-// Call only after frontend policy checks. Files must be absolute. Stops at the
-// first failure, with the tool and file in the exception diagnostic.
+// Rewrite or check the given absolute file paths with the formatter, using
+// project_root as its working directory and throwing on failure.
 void run_formatter(std::filesystem::path const &executable,
                    std::filesystem::path const &project_root,
                    std::vector<std::filesystem::path> files,

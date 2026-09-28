@@ -71,18 +71,18 @@ writes, flushes, and closes it, then renames it over the destination. This does
 not coordinate concurrent writers or guarantee that the replacement survives a
 power loss.
 
-## Initialization and updates (planned command policy)
+## Initialization and updates
 
-Formatting and lock maintenance will share tool identification and validation.
-Missing required records will be initialized from installed tools unless
+Formatting and lock maintenance share tool identification and validation.
+Missing required records are initialized from installed tools unless
 `--locked` forbids initialization. Existing required records must pass validation
 before any missing records are added.
 
-A version mismatch will cause an error without source or lock edits unless the
-tool is explicitly targeted for update. Invalid locks will cause errors rather
-than being silently replaced, and failed tool identification will preserve the
+A version mismatch causes an error without source or lock edits unless the
+tool is explicitly targeted for update. Invalid locks cause errors rather
+than being silently replaced, and failed tool identification preserves the
 old lock.
 
 Help and `info` do not execute tools or require a lock. See the
-[command reference](CLI.md#cxxp-format) for planned automatic initialization,
+[command reference](CLI.md#cxxp-format) for automatic initialization,
 explicit updates, and recovery guidance.

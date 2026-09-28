@@ -22,8 +22,8 @@ precedents.
 
 ## Current status
 
-Early prototype. `cxxp` provides help, version output, and `info` for inspecting
-a project. See the [usage guide](USAGE.md), [command reference](CLI.md), and
+Early prototype. See `cxxp --help` for supported features.
+Also see the [usage guide](USAGE.md), [command reference](CLI.md), and
 [roadmap](ROADMAP.md).
 
 ## Getting involved
@@ -38,7 +38,7 @@ and concrete use cases are welcome; see [Contributing](CONTRIBUTING.md).
 * [CLI.md](CLI.md) for command syntax and behavior
 * [DESIGN.md](DESIGN.md) for a conceptual design explainer
 * [ROADMAP.md](ROADMAP.md) for planned work
-* [TODO.md](TODO.md) for implementation follow-ups and upstream questions
+* [TODO.md](TODO.md) for incidental tasks and future work
 
 ## License
 

@@ -13,7 +13,8 @@ The first proof of concept will work toward these capabilities in order:
    clang-format and existing configuration, without a build. Record and enforce
    the selected formatter version in `cxx.lock.json`, with automatic creation
    and explicit updates. Start with Linux.
-   See the [command and lock contract](CLI.md#cxxp-format).
+   The commands are implemented; broader integration coverage and repository
+   adoption remain. See the [command and lock contract](CLI.md#cxxp-format).
 4. **Analysis:** implement `cxxp check` using clang-tidy and a compilation database,
    with useful failure behavior and optional SARIF output.
 5. **Building:** implement `cxxp build` through CMake. Preserve direct CMake builds.

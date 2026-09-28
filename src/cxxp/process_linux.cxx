@@ -177,8 +177,7 @@ ProcessResult run_process(std::filesystem::path const &executable,
   child.pid = -1;
   if (WIFEXITED(status)) {
     result.exit_code = WEXITSTATUS(status);
-  }
-  else if (WIFSIGNALED(status)) {
+  } else if (WIFSIGNALED(status)) {
     result.signal = WTERMSIG(status);
   }
   return result;
