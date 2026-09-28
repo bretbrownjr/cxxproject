@@ -1,8 +1,8 @@
 find_package(nlohmann_json REQUIRED)
 find_package(valijson REQUIRED)
 
-add_library(cxxp_project_file)
-target_sources(cxxp_project_file PRIVATE
+add_library(cxxp_impl)
+target_sources(cxxp_impl PRIVATE
   cxxp/project_file.cxx
   cxxp/project.cxx
   cxxp/project_info.cxx
@@ -13,7 +13,7 @@ target_sources(cxxp_project_file PRIVATE
   cxxp/format_project.cxx
   cxxp/format_runner.cxx
 )
-target_sources(cxxp_project_file PUBLIC
+target_sources(cxxp_impl PUBLIC
   FILE_SET HEADERS
   BASE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}"
   FILES
@@ -28,7 +28,7 @@ target_sources(cxxp_project_file PUBLIC
       cxxp/format_runner.hxx
       cxxp/process.hxx
 )
-target_link_libraries(cxxp_project_file PUBLIC
+target_link_libraries(cxxp_impl PUBLIC
   nlohmann_json::nlohmann_json
   valijson
 )
@@ -45,7 +45,7 @@ target_sources(cxxp PRIVATE
   FILES cxxp/version.hxx
 )
 target_link_libraries(cxxp PRIVATE
-  cxxp_project_file
+  cxxp_impl
 )
 install(
   TARGETS cxxp
@@ -53,7 +53,7 @@ install(
 )
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-  target_sources(cxxp_project_file PRIVATE cxxp/process_linux.cxx)
+  target_sources(cxxp_impl PRIVATE cxxp/process_linux.cxx)
 else()
   message(FATAL_ERROR "The process implementation currently requires Linux")
 endif()

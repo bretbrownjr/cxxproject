@@ -12,7 +12,6 @@
 - Move all intersting behavior from `cxxp/main.cxx`. That file should be almost
   empty. All interesting behavior should exist in the `cxxp` implementation library
   that can be used in various test drivers.
-- Find a better name for the `cxxp` implementation library.
 - Stop throwing exceptions based on user input or environments. These are normal
   situations to encounter and are not exceptional. Invalid inputs or environments
   should normally result in diagnostics to the users, eventually in SARIF form. Data

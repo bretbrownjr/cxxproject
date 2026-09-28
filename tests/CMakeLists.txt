@@ -37,7 +37,7 @@ find_package(Catch2 REQUIRED)
 
 add_executable(project-file-tests project_file.cxx)
 target_link_libraries(project-file-tests PRIVATE
-  cxxp_project_file
+  cxxp_impl
   Catch2::Catch2WithMain
 )
 target_compile_definitions(project-file-tests PRIVATE
@@ -66,7 +66,7 @@ target_sources(cxxp_test_support
 
 add_executable(project-tests project.cxx)
 target_link_libraries(project-tests PRIVATE
-  cxxp_project_file
+  cxxp_impl
   cxxp_test_support
   Catch2::Catch2WithMain
 )
@@ -84,7 +84,7 @@ add_test(NAME no-include-availability-probes
 
 add_executable(formatting-tests formatting.cxx)
 target_link_libraries(formatting-tests PRIVATE
-  cxxp_project_file cxxp_test_support Catch2::Catch2WithMain)
+  cxxp_impl cxxp_test_support Catch2::Catch2WithMain)
 # Keep Catch2 test-created temporary directories inside the CMake build tree.
 catch_discover_tests(formatting-tests
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/outside-project"
@@ -94,7 +94,7 @@ catch_discover_tests(formatting-tests
 add_executable(process-helper process_helper.cxx)
 add_executable(process-tests process.cxx)
 target_link_libraries(process-tests PRIVATE
-  cxxp_project_file cxxp_test_support Catch2::Catch2WithMain)
+  cxxp_impl cxxp_test_support Catch2::Catch2WithMain)
 target_compile_definitions(process-tests PRIVATE
   CXXP_PROCESS_HELPER="$<TARGET_FILE:process-helper>")
 add_dependencies(process-tests process-helper)

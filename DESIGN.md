@@ -27,7 +27,7 @@ The interface should not prescribe a compiler or IDE.
 ## Code organization
 
 Project loading, validation, discovery, and information serialization live in
-`src/cxxp` and are shared through the `cxxp_project_file` library. The executable
+`src/cxxp` and are shared through the `cxxp_impl` library. The executable
 handles command parsing and presentation. Project loading is independent
 of external tool execution so inspection does not require development tools.
 
