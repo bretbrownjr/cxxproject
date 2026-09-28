@@ -7,6 +7,9 @@ target_sources(cxxp_project_file PRIVATE
   cxxp/project.cxx
   cxxp/project_info.cxx
   cxxp/schema.cxx
+  cxxp/json_file.cxx
+  cxxp/lock_file.cxx
+  cxxp/format_backend.cxx
 )
 target_sources(cxxp_project_file PUBLIC
   FILE_SET HEADERS
@@ -16,6 +19,9 @@ target_sources(cxxp_project_file PUBLIC
       cxxp/project.hxx
       cxxp/project_info.hxx
       cxxp/schema.hxx
+      cxxp/json_file.hxx
+      cxxp/lock_file.hxx
+      cxxp/format_backend.hxx
 )
 target_link_libraries(cxxp_project_file PUBLIC
   nlohmann_json::nlohmann_json

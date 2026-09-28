@@ -3,6 +3,7 @@
 
 #include <nlohmann/json.hpp>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace cxxp {
@@ -18,6 +19,9 @@ struct ProjectFileError {
   std::string field;
   std::string message;
 };
+
+std::vector<ProjectFileError> validate_document(nlohmann::json const &document,
+                                                std::string_view schema_text);
 
 // Returns zero or more errors from validating a cxx.json document.
 std::vector<ProjectFileError>

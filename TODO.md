@@ -5,3 +5,5 @@
   the project workflow and provide feedback upstream.
 - Consider a cxxp feature for custom regular-expression-based linters, for coding
   standards that can be expressed reliably with regular expressions.
+- Add `SeparateDefinitionBlocks: Always` to `.clang-format` and reformat the C++
+  sources and headers to separate definitions with blank lines.

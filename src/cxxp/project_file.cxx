@@ -10,8 +10,8 @@
 #include <valijson/validator.hpp>
 
 namespace cxxp {
-std::vector<ProjectFileError>
-validate_project_file(nlohmann::json const &document) {
+std::vector<ProjectFileError> validate_document(nlohmann::json const &document,
+                                                std::string_view schema_text) {
   if (document.is_object()) {
     auto const identifier = document.find("schemaVersion");
     if (identifier == document.end()) {
@@ -28,9 +28,8 @@ validate_project_file(nlohmann::json const &document) {
     }
   }
 
-  static auto const schema_document =
-      nlohmann::json::parse(project_file_schema);
-  static auto const schema = [] {
+  auto const schema_document = nlohmann::json::parse(schema_text);
+  auto const schema = [&] {
     auto result = std::make_unique<valijson::Schema>();
     valijson::SchemaParser parser(valijson::SchemaParser::kDraft7);
     parser.populateSchema(
@@ -89,4 +88,10 @@ validate_project_file(nlohmann::json const &document) {
   }
   return errors;
 }
+
+std::vector<ProjectFileError>
+validate_project_file(nlohmann::json const &document) {
+  return validate_document(document, project_file_schema);
+}
+
 } // namespace cxxp

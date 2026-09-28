@@ -49,7 +49,7 @@ Help and project inspection remain independent of locks and tool availability.
 
 Release locking cannot guarantee identical artifacts or output: vendor patches,
 adapter changes, and native configuration outside the project can affect results.
-See the [lockfile reference](CXX_LOCK_JSON.md) for the planned representation and
+See the [lockfile reference](CXX_LOCK_JSON.md) for the representation and
 [command reference](CLI.md#cxxp-format) for behavior.
 
 ## Decisions still open

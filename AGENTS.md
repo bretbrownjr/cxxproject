@@ -10,7 +10,7 @@ to keep current. Each file owns a distinct category of information:
 | [README.md](README.md) | Explain the project, its motivation, and current maturity; point readers to other documents. |
 | [DESIGN.md](DESIGN.md) | Record design principles, boundaries, consequential decisions, and open design questions. |
 | [CXX_JSON.md](CXX_JSON.md) | Explain the `cxx.json` format, supported fields, and validation constraints for users. |
-| [CXX_LOCK_JSON.md](CXX_LOCK_JSON.md) | Explain the planned lockfile format, tool version identity, and preservation rules. |
+| [CXX_LOCK_JSON.md](CXX_LOCK_JSON.md) | Explain the lockfile format, tool version identity, and preservation rules. |
 | [USAGE.md](USAGE.md) | Show common command workflows for users. |
 | [CLI.md](CLI.md) | Specify command syntax, output fields, discovery rules, and errors. |
 | [ROADMAP.md](ROADMAP.md) | Describe planned capabilities and their order; distinguish immediate work from deferred ideas. |

@@ -172,7 +172,7 @@ Explicit file paths, style overrides, and other options are not accepted.
 * A project with no matching files still requires tool and lock validation, then
   succeeds without invoking a formatting operation.
 
-See the [manifest reference](CXX_JSON.md#formatting-backend-planned) for backend
+See the [manifest reference](CXX_JSON.md#formatting-backend) for backend
 selection and the [lockfile reference](CXX_LOCK_JSON.md) for lock fields.
 
 ### Output and failures

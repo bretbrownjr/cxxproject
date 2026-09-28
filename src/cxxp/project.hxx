@@ -1,6 +1,7 @@
 #ifndef CXXP_PROJECT_HXX
 #define CXXP_PROJECT_HXX
 
+#include <cxxp/format_backend.hxx>
 #include <filesystem>
 #include <string>
 #include <vector>
@@ -20,6 +21,7 @@ struct Project {
   std::vector<std::string> clang_format_configurations;
   std::vector<std::string> clang_tidy_configurations;
   BuildBackend backend = BuildBackend::none;
+  FormattingBackend formatting_backend = FormattingBackend::clang_format;
 };
 
 // Finds and loads the nearest project starting at the given directory.

@@ -28,6 +28,18 @@
           "minLength": 1
         }
       }
+    },
+    "formatting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "backend": {
+          "type": "string",
+          "enum": [
+            "clang-format"
+          ]
+        }
+      }
     }
   }
 }

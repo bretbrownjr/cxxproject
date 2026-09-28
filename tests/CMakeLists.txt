@@ -81,3 +81,12 @@ add_test(NAME no-include-availability-probes
   COMMAND "${CMAKE_COMMAND}"
     "-DSOURCE_DIR=${PROJECT_SOURCE_DIR}"
     -P "${CMAKE_CURRENT_SOURCE_DIR}/no_include_probes.cmake")
+
+add_executable(formatting-tests formatting.cxx)
+target_link_libraries(formatting-tests PRIVATE
+  cxxp_project_file cxxp_test_support Catch2::Catch2WithMain)
+# Keep Catch2 test-created temporary directories inside the CMake build tree.
+catch_discover_tests(formatting-tests
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/outside-project"
+  PROPERTIES ENVIRONMENT
+    "TMPDIR=${CMAKE_CURRENT_BINARY_DIR};TEMP=${CMAKE_CURRENT_BINARY_DIR};TMP=${CMAKE_CURRENT_BINARY_DIR}")
