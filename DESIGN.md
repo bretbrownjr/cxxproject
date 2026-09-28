@@ -25,6 +25,33 @@ availability or inherited settings.
 
 The interface should not prescribe a compiler or IDE.
 
+## Code organization
+
+Project loading, validation, discovery, and information serialization live in
+`src/cxxp` and are shared through the `cxxp_project_file` library. The executable
+handles command parsing and presentation. Project loading remains independent
+of external tool execution so inspection does not require development tools.
+
+Tool integrations will use adapters for identification and tool-specific
+operations. Shared orchestration will own project discovery and version policy;
+platform-specific process handling will sit behind an internal interface.
+
+## Shared tool policy
+
+Project declarations, adapter compatibility, exact selected releases, and local
+executable paths are separate concerns. Development tools and dependencies used
+to produce the project's binary have distinct roles in shared lock metadata.
+
+Operations will share lock validation and atomic writes. Automatic initialization
+may add missing selections; replacing an existing selection requires an explicit
+update. Metadata maintenance does not itself run source-changing operations.
+Help and project inspection remain independent of locks and tool availability.
+
+Release locking cannot guarantee identical artifacts or output: vendor patches,
+adapter changes, and native configuration outside the project can affect results.
+See the [lockfile reference](CXX_LOCK_JSON.md) for the planned representation and
+[command reference](CLI.md#cxxp-format) for behavior.
+
 ## Decisions still open
 
 File discovery and `info` failure behavior are defined by the initial command
